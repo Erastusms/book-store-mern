@@ -40,4 +40,4 @@ mongoose
     console.log(error);
   });
 
-export default index;
+export default app;
