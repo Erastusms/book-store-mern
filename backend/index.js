@@ -1,8 +1,9 @@
-const express = require('express');
-const { PORT, mongoDBURL } = require('./config.js');
-const mongoose = require('mongoose');
-const booksRoute = require('./routes/booksRoute.js');
-const cors = require('cors');
+import express from 'express';
+import { PORT, mongoDBURL } from './config.js';
+import MongoClient from 'mongodb';
+import booksRoute from './routes/booksRoute.js';
+import cors from 'cors';
+import mongoose from 'mongoose';
 
 const app = express();
 
@@ -39,5 +40,16 @@ mongoose
   .catch((error) => {
     console.log(error);
   });
-
+// MongoClient.connect(mongoDBURL, function (err, client) {
+//   // perform actions on the collection object
+//   try {
+//     console.log('App connected to database');
+//     app.listen(PORT, () => {
+//       console.log(`App is listening to port: ${PORT}`);
+//     });
+//   } catch (err) {
+//     console.log(err);
+//     client.close();
+//   }
+// });
 export default app;
