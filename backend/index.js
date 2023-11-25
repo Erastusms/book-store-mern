@@ -1,9 +1,16 @@
-import express from 'express';
-import { PORT, mongoDBURL } from './config.js';
-import MongoClient from 'mongodb';
-import booksRoute from './routes/booksRoute.js';
-import cors from 'cors';
-import mongoose from 'mongoose';
+// import express from 'express';
+// import { PORT, mongoDBURL } from './config.js';
+// import booksRoute from './routes/booksRoute.js';
+// import cors from 'cors';
+// import mongoose from 'mongoose';
+
+const express = require("express");
+const { PORT, mongoDBURL } = require('./config.js')
+// const MongoClient = require( 'mongodb')
+const booksRoute = require('./routes/booksRoute.js')
+const cors = require('cors')
+const mongoose = require('mongoose');
+
 
 const app = express();
 
@@ -24,7 +31,7 @@ app.use(cors());
 
 app.get('/', (request, response) => {
   console.log(request);
-  return response.status(234).send('Welcome To MERN Stack Tutorial');
+  return response.status(200).send('Welcome To MERN Stack Tutorial');
 });
 
 app.use('/books', booksRoute);
@@ -52,4 +59,6 @@ mongoose
 //     client.close();
 //   }
 // });
-export default app;
+// export default app;
+module.exports = app;
+// module.exports = LineItemController
